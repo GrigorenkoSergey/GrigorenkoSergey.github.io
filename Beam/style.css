@@ -1,0 +1,296 @@
+﻿div.canvasContainer {
+  width: 510px;
+  position: absolute;
+  top: 13px;
+  left: 750px;
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 15px;
+}
+main h1 {
+  text-align: left;
+}
+
+label {
+  display: inline-block;
+}
+
+form {
+  float: left;
+  width: 520px;
+  padding-top: 10px;
+  margin-right: 20px;
+}
+
+form legend span {
+  margin-left: 5px;
+}
+
+input[type='text'] {
+  max-width: 190px;
+}
+
+/*Поля ввода "характеристики балки"*/
+fieldset[name="beamCharacteristic"] input:first-child {
+  margin-bottom: 2px;
+}
+
+fieldset[name="beamCharacteristic"] input[type="text"]:first-child,
+fieldset[name="beamCharacteristic"] .buttons {
+  width: 230px;
+}
+
+fieldset[name="beamCharacteristic"] .buttons input:last-child {
+  float: right;
+}
+
+fieldset[name="beamCharacteristic"] div span {
+  display: inline-block;
+  min-width: 70px;
+}
+
+/*Редактирование опор балки */
+fieldset[name="editSupports"] .buttons input {
+  width: 49%;
+  min-width: 200px;
+}
+
+fieldset[name="editSupports"] .content span {
+  display: inline-block;
+  width: 135px;
+}
+
+fieldset[name="editSupports"] label:last-child input[type="text"] {
+  width: 80%;
+  max-width: 190px;
+}
+
+select[name="supportType"] {
+  width: 245px;
+}
+
+fieldset[name="editSupports"] div.inline-block {
+  width: 245px;
+}
+
+/*Редактирование панель нагрузок*/
+fieldset[name="editLoads"] .buttons input {
+  width: 49%;
+  min-width: 200px;
+}
+
+fieldset[name="editLoads"] label span {
+  display: inline-block;
+  width: 170px;
+}
+
+fieldset[name="editLoads"] input[type="text"] {
+  width: 180px;
+}
+
+input[name="acceptLoad"] {
+  width: 200px;
+}
+
+fieldset[name="showIPF"] label:last-child input[type="text"] {
+  max-width: 170px;
+  min-width: 50px;
+}
+
+fieldset[name="multipleLoadPoints"] label span,
+fieldset[name="loadValues"] label span {
+  width: 60px;
+}
+
+/*  Селекторы по тегам помощи */
+div.help {
+  display: inline-block;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+div.help img {
+  position: relative;
+  top: 10px;
+}
+
+div.help img:nth-child(2) {
+  display: none;
+}
+
+div.help.open img:nth-child(2) {
+  display: inline;
+}
+
+div.help.open img:first-child {
+  display: none;
+}
+
+div.help p {
+  display: none;
+  margin-top: 0;
+}
+
+div.help.open p {
+  display: block;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+label.inline-block {
+  display: inline-block;
+  padding-bottom: 0;
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+
+fieldset {
+  position: relative;
+  padding: 0;
+}
+
+fieldset legend {
+  padding-top: 10px;
+}
+
+.open div.content {
+  display: block;
+}
+
+.open .toggler::before {
+  content: '▲';
+  cursor: pointer;
+}
+
+.closed div.content {
+  display: none;
+}
+
+.closed .toggler::before {
+  content: '▼';
+  cursor: pointer;
+}
+
+input.characteristics {
+  width: 75px;
+  padding-bottom: 0;
+}
+
+.content {
+  border: 1px solid black;
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+input[type="text"] {
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 8px;
+  padding: 2px;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, .75);
+  font: italic bold 0.8rem 'Gabriela', serif;
+}
+
+input:disabled {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+input[type="text"]:focus {
+  background-color: white;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, .5);
+}
+
+input[type="button"],
+input[type="reset"] {
+  border-radius: 10px;
+  padding: 5px 10px;
+  font: italic bold 1rem 'Gabriela', serif;
+}
+
+input[type="button"]:hover,
+input[type="reset"]:hover {
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, .8);
+  color: white;
+}
+
+
+select {
+  font: italic 1rem 'Gabriela', serif;
+}
+
+legend {
+  color: white;
+}
+
+input[name="acceptLoad"] {
+  margin-top: 5px;
+}
+
+.relativityPositionFlags input {
+  margin-left: 20px;
+}
+
+fieldset[name="reset"] {
+  margin-top: 20px;
+}
+
+fieldset[name="reset"] input {
+  width: 50%;
+  float: left;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.content {
+  min-width: 267px;
+}
+
+@media (min-width: 521px) and (max-width: 1200px) {
+
+  form {
+    float: none;
+    margin: 0 auto;
+  }
+
+  div.canvasContainer {
+    position: static;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  form {
+    float: none;
+    margin: 0 auto;
+    width: 90%;
+    padding: 0 5px;
+  }
+
+  div.canvasContainer {
+    position: static;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .relativityPositionFlags label {
+    display: block;
+  }
+
+  fieldset[name="reset"] input {
+    width: 90%;
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 330px) {
+  form {
+    margin-left: -10px;
+  }
+}
