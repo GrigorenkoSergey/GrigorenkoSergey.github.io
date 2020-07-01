@@ -4,12 +4,12 @@
 <metadata>
 Created by FontForge 20090914 at Thu Nov  7 02:54:19 2019
  By www-data
-Copyright 2019 The Quicksand Project Authors (https://github.com/andrew-paglinawan/QuicksandFamily.git), with Reserved Font Name "Quicksand"
+Copyright 2019 The quicksand Project Authors (https://github.com/andrew-paglinawan/quicksandFamily.git), with Reserved Font Name "quicksand"
 </metadata>
 <defs>
-<font id="Quicksand-Regular" horiz-adv-x="0" >
+<font id="quicksand-regular" horiz-adv-x="0" >
   <font-face 
-    font-family="Quicksand"
+    font-family="quicksand"
     font-weight="400"
     font-stretch="normal"
     units-per-em="1000"

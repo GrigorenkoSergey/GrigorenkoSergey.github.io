@@ -4,12 +4,12 @@
 <metadata>
 Created by FontForge 20090914 at Thu Nov  7 02:46:03 2019
  By www-data
-Copyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat)
+Copyright 2011 The montserrat Project Authors (https://github.com/JulietaUla/montserrat)
 </metadata>
 <defs>
-<font id="Montserrat-Bold" horiz-adv-x="0" >
+<font id="montserrat-bold" horiz-adv-x="0" >
   <font-face 
-    font-family="Montserrat"
+    font-family="montserrat"
     font-weight="700"
     font-stretch="normal"
     units-per-em="1000"
