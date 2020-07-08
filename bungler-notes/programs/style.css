@@ -1,0 +1,44 @@
+a.nextArticle,
+a.prevArticle {
+  float: right;
+  padding-right: 10px;
+  font: italic bold 1.5rem 'Gabriela', serif;
+  text-decoration: none;
+  color: white;
+}
+
+a.prevArticle {
+  float: left;
+}
+
+img.equation {
+  display: block;
+  margin-bottom: 10px;
+  margin: 10px auto 10px auto;
+}
+
+main img {
+  padding-right: 20px;
+}
+
+figure {
+  float: left;
+  font-size: 120%; 
+  color: white;
+  padding-left: inherit;
+  margin-bottom: 10px;
+}
+
+ol {
+  padding-bottom: 10px;
+}
+span.calculation {
+  display: inline-block;
+  background: white;
+  padding: 0 5px;
+  margin: 1px 0px;
+}
+
+ol {
+  font-size: 1.6rem;
+}

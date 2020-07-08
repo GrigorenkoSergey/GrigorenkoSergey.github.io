@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Список статей</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="styleMain.css" />
+  <link href="https://fonts.googleapis.com/css?family=Gabriela|Caveat&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+
+</head>
+
+<body class="articles">
+  <h1 id="siteName">ЗАПИСКИ БРАКОДЕЛА</h1>
+  <aside>
+    <img id="logo" src="foreman.png" />
+  <nav>
+    <ul>
+      <li><a href="mainPage.html" class="homelink">ГЛАВНАЯ</a></li>
+      <li><a href="articles.html" class="articlesLink">СТАТЬИ</a></li>
+      <li><a href="programs/progs.html" class="">ПРОГИ</a></li>
+    </ul>
+  </nav>
+</aside>
+  <script src="showSiteName.js"> </script>
+  <main>
+    <h1>Расчет деревянной опалубки</h2>
+    <ol>
+      <li><a href="theme_1/page_1.html">Введение</a></li>
+      <li><a href="theme_1/page_2.html">Расчет досок палубы</a></li>
+      <li><a href="theme_1/page_3.html">Расчет ребер</a></li>
+      <li><a href="theme_1/page_4.html">Расчет схваток</a></li>
+      <li><a href="theme_1/page_5.html">Расчет досок палубы (доски вертикально)</a></li>
+    </ol>
+  </main>
+  <footer>
+    Copyright Григоренко С.Ю.&ensp;|&ensp;crazybuilder51@gmail.ru 
+  </footer>
+  <script>
+    let footer = document.querySelector('FOOTER');
+    let scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight);
+    footer.style.top = scrollHeight - 70 + 'px';
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Программы</title>
+  <link rel="stylesheet" href="../reset.css" />
+  <link rel="stylesheet" href="../styleMain.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Gabriela|Caveat&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+
+</head>
+
+<body class="progs">
+  <h1 id="siteName">ЗАПИСКИ БРАКОДЕЛА</h1>
+  <aside>
+    <img id="logo" src="../foreman.png" />
+    <nav>
+      <ul>
+        <li><a href="../mainPage.html" class="homelink">ГЛАВНАЯ</a></li>
+        <li><a href="../articles.html" class="articlesLink">СТАТЬИ</a></li>
+        <li><a href="#" class="progsLink">ПРОГИ</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <script src="../showSiteName.js"> </script>
+  <main>
+    <br />
+    <ol>
+      <li><a href="beam_site/beam.html">Расчет балки</a></li>
+    </ol>
+  </main>
+  <footer>
+    Copyright Григоренко С.Ю.&ensp;|&ensp;crazybuilder51@gmail.ru
+  </footer>
+  <script>
+    let footer = document.querySelector('FOOTER');
+    let scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight);
+    footer.style.top = scrollHeight - 70 + 'px';
+  </script>
+</body>
+
+</html>

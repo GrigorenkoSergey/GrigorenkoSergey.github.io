@@ -1,0 +1,249 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Расчет простой балки</title>
+  <link rel="stylesheet" href="../../reset.css" />
+  <link rel="stylesheet" href="../../styleMain.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Gabriela|Caveat&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+</head>
+
+<body class="progs">
+  <h1 id="siteName">ЗАПИСКИ БРАКОДЕЛА</h1>
+  <aside>
+    <img id="logo" src="../../foreman.png" />
+  <nav>
+    <ul>
+      <li><a href="../../mainPage.html" class="homelink">ГЛАВНАЯ</a></li>
+      <li><a href="../../articles.html" class="articlesLink">СТАТЬИ</a></li>
+      <li><a href="../progs.html" class="progsLink">ПРОГИ</a></li>
+    </ul>
+  </nav>
+</aside>
+  <script src="../../showSiteName.js"> </script>
+
+  <main>
+    <form action="beam.js" name="inputBeamData">
+      <fieldset name="beamCharacteristic" class="open">
+        <div class="content">
+          <label>Введите длину балки, мм:
+            <input type="text" name="beamLength" value="1000" /><br />
+            <div class="buttons">
+              <input type="button" name="beamLengthOkBtn" value="OK" />
+              <input type="button" name="beamLengthResetBtn" value="Сбросить длину" />
+            </div>
+          </label>
+          <span>Характеристики балки:</span><br />
+          <span>E, МПа:</span><input type="text" name="inputE" class="characteristics" />
+          <div><span>I, см<sup>4</sup>:</span><input type="text" name="inputI" class="characteristics" />
+            <div class="help">
+              <img src="иконки/help.png" width="30px" height="30px" title="Помощь" />
+              <img src="иконки/bookmark.png" width="30px" height="30px" title="Скрыть подсказку" />
+              <p>Программа высчитывает прогибы или в безразмерных величинах или в мм. Если нужны безразмерные величины, просто очистите поле со значением любой из характеристик. (Нажмите на значок открытой книги, чтобы скрыть подсказку).</p>
+            </div>
+          </div>
+      </fieldset>
+      <!-- &emsp; - 4 пробела
+     &ensp; - 2 пробела
+     &nbsp; - 1 пробел (Так, на будущее)
+-->
+
+      <fieldset name="relativity" class="open">
+        <legend>Способы задания расстояний и начала отсчета<span class="toggler"></span></legend>
+        <div class="content">
+          <div class="relativityPositionFlags">
+            <span>Способ задания расстояния:</span><br />
+            <label><input type="radio" name="distanceRelativity" value="relative" checked /> относительный</label>
+            <label><input type="radio" name="distanceRelativity" value="absolute" /> абсолютный
+              <div class="help">
+                <img src="иконки/help.png" width="30px" height="30px" title="Помощь" />
+                <img src="иконки/bookmark.png" width="30px" height="30px" title="Скрыть подсказку" />
+                <p>
+                  Относительное расстояние - расстояние относительно длины балки, где 0 соответствует началу балки, 1 - концу балки. Например 1/4 - опора на четверти длины балки.
+                  <br />
+                  Абсолютное расстояние - расстояние от начала/конца балки в мм. (Нажмите на значок открытой книги, чтобы скрыть подсказку).</p>
+              </div></label>
+            <div style="clear:both"></div>
+            <span>Отсчет начинаем:</span><br />
+            <label><input type="radio" name="countFrom" value="fromBegin" checked />от начала</label>
+            <label><input type="radio" name="countFrom" value="fromEnd" />с конца</label>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset name="editSupports" class="open">
+        <legend>Создание/удаление/редактирование опор балки<span class="toggler"></span></legend>
+        <div class="content">
+          <div class="buttons">
+            <input type="button" name="addSupportBtn" value="Добавить опору" />
+            <input type="button" name="removeSupportBtn" value="Удалить опору" />
+          </div>
+          <label><span>Номер опоры:</span>
+            <select name="supportSelector"></select>
+          </label>
+          <div class="help">
+            <img src="иконки/help.png" width="30px" height="30px" title="Помощь" />
+            <img src="иконки/bookmark.png" width="30px" height="30px" title="Спрятать подсказку" />
+            <p>
+              Создаем новую опору, для этого необходимо задать ее положение (графа "Расстояние") и нажать кнопку "ОК".
+              Если выбрать номер опоры из выпадающего списка, то переходим в режим редактирования существующей опоры.
+              Опоры нумеруются автоматически слева направо. (Нажмите на значок открытой книги, чтобы скрыть подсказку).
+            </p>
+          </div>
+          <label><span>Вид опоры:</span>
+            <select name="supportType">
+              <option value="hinged-fixed">Шарнирно-неподвижная</option>
+              <option value="hinged-movable">Шарнирно-подвижная</option>
+              <option value="rigid-clamping">Жесткая заделка</option>
+            </select>
+          </label>
+          <label><span>Расстояние:</span>
+            <div class="inline-block">
+              <input type="text" name="supportPosition" />
+              <input type="button" name="supportPositionOkBtn" value="OK" />
+            </div>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset name="editLoads" class="open">
+        <legend>Создание/удаление/редактирование нагрузок<span class="toggler"></span></legend>
+        <div class="content">
+          <div class="buttons">
+            <input type="button" name="addLoadBtn" value="Новая нагрузка" />
+            <input type="button" name="removeLoadBtn" value="Удалить нагрузку" />
+          </div>
+          <label><span>Номер нагрузки:</span>
+            <select name="loadSelector"></select>
+          </label>
+
+          <label><span>Вид нагрузки:</span>
+            <select name="loadType">
+              <option value="concentrated" selected>Сосредоточенная</option>
+              <option value="distributed">Распределенная</option>
+              <option value="moment">Момент</option>
+            </select>
+          </label>
+          <label>
+            <span>Ед. измерения:</span>
+            <select name="measure"></select>
+          </label>
+          <fieldset name="oneLoadPoint">
+            <legend>Точка приложения нагрузки</legend>
+            <input type="text" name="xStartSingle" data-newloadfield="xStart" /><span></span>
+          </fieldset>
+
+          <fieldset name="multipleLoadPoints">
+            <legend>Точки приложения нагрузки</legend>
+
+            <label>Начальная точка:<br />
+              <input type="text" name="xStart" data-newloadfield="xStart" /><span></span>
+            </label>
+
+            <label>Конечная точка:<br /> 
+              <input type="text" name="xEnd" data-newloadfield="xEnd" /><span></span>
+            </label>
+          </fieldset>
+
+          <fieldset name="loadValueSingle">
+            <legend>Значение нагрузки</legend>
+            <input type="text" name="valueStartSingle" data-newloadfield="valueStart" /><span></span>
+          </fieldset>
+
+          <fieldset name="loadValues">
+            <legend>Значения нагрузки</legend>
+            <label>Начальное значение<br />
+              <input type="text" name="valueStart" data-newloadfield="valueStart" /><span></span>
+            </label>
+            <label>Конечное значение<br />
+              <input type="text" name="valueEnd" data-newloadfield="valueEnd" /><span></span>
+            </label>
+          </fieldset>
+          <input type="button" name="acceptLoad" value="Принять изменения" />
+        </div>
+      </fieldset>
+
+      <fieldset name="maximums" class="open">
+        <legend> Максимальные значения нагрузок и выбор эпюр для построения (x от начала балки):<span class="toggler"></span></legend>
+        <div class="content">
+          Построить эпюру:<br>
+          <label for="plotM"><input type="checkbox" id="plotM" checked>моментов</label>
+          <label for="plotQ"><input type="checkbox" id="plotQ" checked>поперечной силы</label>
+          <label for="plotV"><input type="checkbox" id="plotV" checked>прогибов</label>
+
+          <div name="maxFactors">
+            <span name="Mmax"></span>
+            <span name="Mmin"></span>
+            <span name="Qmax"></span>
+            <span name="Qmin"></span>
+            <span name="Vmax"></span>
+            <span name="Vmin"></span>
+          </div>
+        </div>
+        </legend>
+      </fieldset>
+
+      <!-- Internal Power Factors -->
+      <fieldset name="showIPF" class="open">
+        <legend>Значения внутренних сил в точках<span class="toggler"></span></legend>
+        <div class="content">
+          <label>Расстояние:
+            <div class="inline-block">
+              <input type="text" name="pointToShowIPF" />
+              <input type="button" name="pointToShowIPFOKBtn" value="OK" />
+            </div>
+          </label>
+          <br />
+          &emsp;Значение M:<span name="M"></span><br />
+          &emsp;Значение Q:<span name="Q"></span><br />
+          &emsp;Значение V (прогиб):<span name="V"></span>
+        </div>
+      </fieldset>
+
+      <fieldset name="reset">
+        <div class="content">
+          <input type="button" name="countBtn" value="Рассчитать" />
+          <input type="reset" name="deleteAll" value="Сбросить все!" />
+          <input type="button" name="deleteLoads" value="Сбросить нагрузки" />
+          <input type="button" name="deleteSupports" value="Удалить опоры" />
+          <div style="clear:both"></div>
+        </div>
+      </fieldset>
+
+    </form>
+
+    <!-- <input type="button" onclick="fillFields()" value="Автоматический тест" /> -->
+
+
+    <div class="canvasContainer">
+      <canvas id="canvas" width="500px" height="150px"></canvas>
+    </div>
+
+    <script src="beam.js" defer></script>
+    <script src="drawBeam.js" defer></script>
+    <script>
+      let canvas = document.getElementById('canvas');
+      let c = canvas.getContext('2d');
+    </script>
+    <script src="commonVariables.js" defer></script>
+    <script src="commonScripts.js" defer></script>
+    <script src="defineBeamLength.js" defer></script>
+    <script src="editRelativity.js" defer></script>
+    <script src="editSupports.js" defer></script>
+    <script src="editLoads.js" defer></script>
+    <script src="editShowIPF.js" defer></script>
+    <script src="linearEquationsSolution.js" defer></script>
+    <script src="count.js" defer></script>
+    <!--    <script src="automaticTest.js" defer></script>  -->
+
+  </main>
+  <div style="clear:both"></div>
+  <footer>
+    Copyright Григоренко С.Ю.&ensp;|&ensp;crazybuilder51@gmail.ru
+  </footer>
+</body>
+
+</html>

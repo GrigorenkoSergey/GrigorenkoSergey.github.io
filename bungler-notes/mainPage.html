@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Главная страница</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="styleMain.css" />
+  <link href="https://fonts.googleapis.com/css?family=Gabriela|Caveat&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+
+</head>
+
+<body class="home">
+  <h1 id="siteName">ЗАПИСКИ БРАКОДЕЛА</h1>
+  <aside>
+    <img id="logo" src="foreman.png" />
+    <nav>
+      <ul>
+        <li><a href="mainPage.html" class="homelink">ГЛАВНАЯ</a></li>
+        <li><a href="articles.html" class="articlesLink">СТАТЬИ</a></li>
+        <li><a href="programs/progs.html" class="">ПРОГИ</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <script src="showSiteName.js"> </script>
+  <main>
+    <h2>Приветствую вас!</h2>
+    <p>Данный ресурс (пока ресурсик) был задуман как альтернатива современной тенденции превращения рунета в большую рекламную помойку.
+      Сайт посвящен строительным технологиям, доступным и характерным, прежде всего, именно для российской стройки.
+      Информация, предоставляемая здесь, может быть полезна для профессиональных строителей - бригадиров, мастеров, прорабов, инженеров ПТО. Здесь вы также найдете некоторые полезные мини-программы, написанные мной и для себя. </p>
+    <p>Я попробую передать вам часть своего уже немалого опыта, поскольку сам решил завязать со строительством. Причина - нежелания следовать нормам, правилам и ограничениям, установленным нам (строителям) людьми, не имеющими никакого практического опыта. На мой взгляд, искренняя попытка соблюдать законы и нормативные акты, разработанные в последние годы, вводит нашу (и не только нашу) отрасль в состояние перманентной <a href="https://ru.wikipedia.org/wiki/Итальянская забастовка">"итальянской забастовки"</a> c вполне закономерным итогом.</p>
+    <p> Я создавал этот сайт для инженеров, которые любят свою профессию. Для тех, кто обычно тщательно продумывает свой следующий шаг и отвечают за последствия этих шагов. Первый цикл статей и первая программа будут посвящены самым трудным и незаслуженно мало оплачиваемым бетонным работам. Надеюсь, что советы и хитрости, представленные здесь, значительно ускорят производственные процессы на ваших площадках.</p>
+    <p>С уважением, Григоренко С.Ю. - инженер ПГС. <br /><br />Отдельное спасибо сайту <a href="https://ru.numberempire.com/">numberempire.com</a> за чудесный генератор формул. </p>
+    </p>
+  </main>
+  <footer>
+    Copyright Григоренко С.Ю.&ensp;|&ensp;crazybuilder51@gmail.ru
+  </footer>
+  <script>
+    let footer = document.querySelector('FOOTER');
+    let scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight);
+    footer.style.top = scrollHeight - 70 + 'px';
+  </script>
+</body>
+
+</html>
